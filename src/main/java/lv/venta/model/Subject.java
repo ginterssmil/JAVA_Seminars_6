@@ -39,7 +39,7 @@ public class Subject {
 	@Column(name="Title")
 	@NotNull
 	@NotEmpty
-	@Pattern(regexp = "[A-Z]{1}[A-Za-z ]{1,40s}")
+	@Pattern(regexp = "[A-Z]{1}[A-Za-z ]{1,40}")
 	private String title;
 	
 	@Column(name="CreditPoints")
