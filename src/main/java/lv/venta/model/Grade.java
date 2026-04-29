@@ -42,6 +42,9 @@ public class Grade {
 	@JoinColumn(name = "Sid")
 	private Student student;
 	
+	@ManyToOne
+	@JoinColumn(name = "Suid")
 	private Subject subject;
+	
 	
 }
