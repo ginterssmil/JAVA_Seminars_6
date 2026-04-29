@@ -2,13 +2,14 @@ package lv.venta.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -17,48 +18,41 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lv.venta.model.enums.Degree;
 
-@Table(name="ProfessorTable")
+@Table(name="SubjectTable")
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-public class Professor {
-
+public class Subject {
 	@Setter(value=AccessLevel.NONE)
-	@Column(name="Pid")
+	@Column(name="Suid")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long pid;
+	private long suid;
 	
-	@Column(name="Name")
+	@Column(name="Title")
 	@NotNull
 	@NotEmpty
-	@Pattern(regexp = "[A-Z]{1}[a-z]{2,20}")
-	private String name;
+	@Pattern(regexp = "[A-Z]{1}[A-Za-z ]{1,40s}")
+	private String title;
 	
-
-	@Column(name="Surame")
+	@Column(name="CreditPoints")
 	@NotNull
-	@NotEmpty
-	@Pattern(regexp = "[A-Z]{1}[a-z]{2,20}")
-	private String surname;
+	@Min(1)
+	@Max(30)
+	private int creditPoints;
 	
-	@Column(name = "Degree")
-	@Enumerated(EnumType.STRING)
-	@NotNull
-	private Degree degree;
-	
-	@OneToOne(mappedBy = "professor")
-	@ToString.Exclude
-	private Subject subject;
+	@OneToOne
+	//radis prof id Subject klase
+	@JoinColumn(name="Pid")
+	private Professor professor;
 	
 	
-	public Professor(String name, String surname, Degree degree) {
-		setName(name);
-		setSurname(surname);
-		setDegree(degree);
+	public Subject(String title, int creditPoints, Professor professor) {
+		setTitle(title);
+		setCreditPoints(creditPoints);
+		setProfessor(professor);
 	}
 }
