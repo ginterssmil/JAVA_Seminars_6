@@ -46,5 +46,10 @@ public class Grade {
 	@JoinColumn(name = "Suid")
 	private Subject subject;
 	
+	public Grade(int grvalue, Student student, Subject subject) {
+		setGrvalue(grvalue);
+		setStudent(student);
+		setSubject(subject);
+	}
 	
 }
