@@ -84,7 +84,7 @@ public class FilterServiceImpl implements IFilterService{
 		}
 		
 		
-		float result = grRepo.calculateAVGGradeForCourse(title);
+		float result = grRepo.calculateAVGGradeForSubject(title);
 		
 		if(result == 0) {
 			throw new Exception("Kursam " + title + " nav piesaistias atzimes un nevar aprekinat videjo");

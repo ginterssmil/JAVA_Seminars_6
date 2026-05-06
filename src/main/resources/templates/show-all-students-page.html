@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<body>
+		
+		<h1 th:text="${MyHeader}">Produkti no JAVA puses </h1>
+		<table >
+			<tr th:each="tempSP : ${package}">
+				<td th:text="${tempS.sid}"></td>
+				<td th:text="${tempS.name}"></td>
+				<td th:text="${tempS.surname}"></td>
+
+			</tr>
+		</table>
+	</body>
+
+</html>
