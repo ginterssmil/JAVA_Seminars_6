@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 import lv.venta.model.Grade;
 import lv.venta.model.Student;
 import lv.venta.repo.IGradeRepo;
-import lv.venta.repo.iStudentRepo;
+import lv.venta.repo.IStudentRepo;
 import lv.venta.service.IStudentCRUDService;
 
 @Service
 public class StudentCRUDServiceImpl implements IStudentCRUDService{
 
 	@Autowired
-	private iStudentRepo studRepo;
+	private IStudentRepo studRepo;
 	@Autowired
 	private IGradeRepo grRepo;
 	

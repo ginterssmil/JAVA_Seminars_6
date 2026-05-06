@@ -8,7 +8,7 @@ import lv.venta.model.enums.Degree;
 import lv.venta.repo.IGradeRepo;
 import lv.venta.repo.IProfessorRepo;
 import lv.venta.repo.ISubjectRepo;
-import lv.venta.repo.iStudentRepo;
+import lv.venta.repo.IStudentRepo;
 
 import java.util.Arrays;
 
@@ -24,11 +24,11 @@ public class JavaSeminars6Application {
 	private final IGradeRepo IGradeRepo;
 	private final ISubjectRepo ISubjectRepo;
 	private final IProfessorRepo IProfessorRepo;
-	private final iStudentRepo iStudentRepo;
+	private final IStudentRepo iStudentRepo;
 
 
 
-	JavaSeminars6Application(iStudentRepo iStudentRepo, IProfessorRepo IProfessorRepo, ISubjectRepo ISubjectRepo, IGradeRepo IGradeRepo) {
+	JavaSeminars6Application(IStudentRepo iStudentRepo, IProfessorRepo IProfessorRepo, ISubjectRepo ISubjectRepo, IGradeRepo IGradeRepo) {
 		this.iStudentRepo = iStudentRepo;
 		this.IProfessorRepo = IProfessorRepo;
 		this.ISubjectRepo = ISubjectRepo;
@@ -43,7 +43,7 @@ public class JavaSeminars6Application {
 
 	
 	@Bean
-	public CommandLineRunner testRepo(iStudentRepo studRepo, IProfessorRepo profRepo, ISubjectRepo subjectRepo, IGradeRepo gradeRepo) {
+	public CommandLineRunner testRepo(IStudentRepo studRepo, IProfessorRepo profRepo, ISubjectRepo subjectRepo, IGradeRepo gradeRepo) {
 		return new CommandLineRunner() {
 			
 			@Override
